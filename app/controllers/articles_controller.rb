@@ -7,4 +7,8 @@ class ArticlesController < ApplicationController
         # binding.break # Stops the execution and lets you debug
         @article = Article.find(params[:id]) 
     end
+
+    def index 
+        @articles = Article.all
+    end
 end
