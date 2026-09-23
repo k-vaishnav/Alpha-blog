@@ -1,10 +1,11 @@
 class ArticlesController < ApplicationController
+    before_action :set_article, only: [:show, :edit, :update, :destroy]
     def show
         # if i use @article = Article.find_by(id: params[:id]) it will return nil
         # if i use @article = Article.find(params[:id]) it will return the respective id (if exists) or an error
         # if i have to use this article in template i have to use instance variable
         # binding.break # Stops the execution and lets you debug
-        @article = Article.find(params[:id]) 
+        # @article = Article.find(params[:id]) 
     end
     def index 
         @articles = Article.all
@@ -14,7 +15,7 @@ class ArticlesController < ApplicationController
     end
     def edit
         # binding.break
-        @article = Article.find(params[:id])
+        # @article = Article.find(params[:id])
     end
     def create
         @article = Article.new(article_params)
@@ -29,7 +30,7 @@ class ArticlesController < ApplicationController
     end
     def update
         # binding.break
-        @article = Article.find(params[:id])
+        # @article = Article.find(params[:id])
         if @article.update(article_params)
             flash[:notice] = "Article was successfully updated."
             redirect_to @article
@@ -38,7 +39,7 @@ class ArticlesController < ApplicationController
         end
     end
     def destroy
-        @article = Article.find(params[:id])
+        # @article = Article.find(params[:id])
         @article.destroy
         redirect_to articles_path
     end
@@ -46,5 +47,8 @@ class ArticlesController < ApplicationController
     def article_params
         # params.require(:article).permit(:title, :description)
         params.expect(article:[:title,:description])
+    end
+    def set_article
+        @article = Article.find(params[:id])
     end
 end
