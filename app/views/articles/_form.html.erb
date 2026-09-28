@@ -7,8 +7,8 @@
 <% end %>
 </ul>
 
-<%#= form_with scope: :article,url: articles_path, locals:true, data: {turbo: false}  do |f| %>  # post
-<%#= form_with model: @article,url: article_path(@article), local:true,data:{turbo:false} do |f| %> #put
+<%#= form_with scope: :article,url: articles_path, locals:true, data: {turbo: false}  do |f| %>  
+<%#= form_with model: @article,url: article_path(@article), local:true,data:{turbo:false} do |f| %> 
 
 <%= form_with model: @article, local: true, data:{turbo: false} do |f| %>
     <p>
