@@ -2,6 +2,7 @@
 
 <p><Strong>Title:</Strong><%= @article.title %></p>
 <p><Strong>Description:</Strong><%=@article.description %> </p>
+<p><Strong>Author:</Strong><%=@article.user.username if @article.user %> </p>
 
 <p>
     <%= link_to 'Back', articles_path %>
