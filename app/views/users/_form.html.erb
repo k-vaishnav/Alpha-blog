@@ -1,0 +1,22 @@
+<%= render 'shared/errors', obj: @user %>
+<%= form_with model: @user, local:true, data: {turbo: false} do |f| %>
+    <div>
+        <%= f.label :username,"Name" %>
+        <%= f.text_field :username, placeholder: "Enter a user name" %> <br/>
+    </div>
+    <div>
+        <%= f.label :email,"Email" %>
+        <%= f.email_field :email, placeholder: "Enter your email address" %> <br/>
+    </div>
+     <div>
+        <%= f.label :password,"Password" %>
+        <%= f.password_field :password, placeholder: "Enter your password" %> <br/>
+    </div>
+    <div>
+        <%= f.submit %>
+    </div>
+<% end %>
+<div>
+    <%= link_to '[ Cancel and return to articles listing]', articles_path %>
+    <%#= link_to 'Articles listing', articles_path %>
+</div>

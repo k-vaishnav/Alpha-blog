@@ -16,7 +16,7 @@ class User < ApplicationRecord
     #     puts "Iam in check method"
     #     username&.start_with?("X")
     # end
-
+    has_secure_password
     after_find do |user|
         Rails.logger.info "User #{user.username} was found"
     end
